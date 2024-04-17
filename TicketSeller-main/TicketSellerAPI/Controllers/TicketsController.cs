@@ -43,7 +43,11 @@ namespace TicketSellerAPI.Controllers
         {
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetTicket), new { id = ticket.Id }, ticket);
+
+            var newTicket = ticket;
+            newTicket.User = _context.Users.Where(p => p.Id == ticket.UserId).First();
+            newTicket.Occasion = _context.Occasions.Where(p => p.Id == ticket.OccasionId).First();
+            return CreatedAtAction(nameof(GetTicket), new { id = ticket.Id }, newTicket);
         }
 
         // PUT: api/Tickets/5

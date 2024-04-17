@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function OccasionsDisplay({ categoryId }) {
+function OccasionsDisplay({ categoryId, onOccasionSelect }) {
   const [occasions, setOccasions] = useState([]);
 
   useEffect(() => {
@@ -11,13 +11,14 @@ function OccasionsDisplay({ categoryId }) {
   }, [categoryId]);
 
   return (
-    <ul>
+    <select onChange={(e) => onOccasionSelect(e.target.value)} defaultValue="">
+      <option value="">Select an occasion</option>
       {occasions.map((occasion) => (
-        <li key={occasion.id}>
+        <option key={occasion.id} value={occasion.id}>
           {occasion.occasionName} at {occasion.occasionPlace} on {new Date(occasion.startTime).toLocaleDateString()}
-        </li>
+        </option>
       ))}
-    </ul>
+    </select>
   );
 }
 
