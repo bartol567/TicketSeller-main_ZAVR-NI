@@ -24,7 +24,7 @@ namespace TicketSellerAPI.Models
         public string Oib { get; set; }
 
         [StringLength(200, ErrorMessage = "Address cannot be longer than 200 characters.")]
-        public string adress { get; set; }
+        public string HomeAddress { get; set; }
 
         [StringLength(100, ErrorMessage = "City name cannot be longer than 100 characters.")]
         public string City { get; set; }

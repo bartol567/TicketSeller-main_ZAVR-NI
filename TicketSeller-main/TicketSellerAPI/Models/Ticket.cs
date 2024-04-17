@@ -18,6 +18,7 @@ namespace TicketSellerAPI.Models
         public int Seat { get; set; }
 
         // Seated je da ili ne, dovoljno
+        public bool Seated { get; set; }
 
         public User? User { get; set; }
         public Occasion? Occasion { get; set; }

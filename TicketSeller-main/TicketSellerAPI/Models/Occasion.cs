@@ -1,7 +1,10 @@
-﻿namespace TicketSellerAPI.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TicketSellerAPI.Models
 {
     public class Occasion
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string? OccasionName { get; set; }
         public string? OccasionPlace { get; set; }

@@ -19,7 +19,7 @@ namespace TicketSellerAPI.Data
         {
             modelBuilder.Entity<OccasionCategory>().ToTable("occasionCategory");
             modelBuilder.Entity<User>().ToTable("Users");
-            
+
         }
     }
 }

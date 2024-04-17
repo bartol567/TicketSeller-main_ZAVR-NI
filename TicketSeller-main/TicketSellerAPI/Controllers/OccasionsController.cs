@@ -39,13 +39,45 @@ namespace TicketSellerAPI.Controllers
 
         // POST: api/Occasions
         [HttpPost]
-        public async Task<ActionResult<Occasion>> Post(Occasion occasion)
+        public async Task<ActionResult<Occasion>> Post(OccasionREST occasionREST)
         {
+
+            var occasion = MapFromREST(occasionREST);
             _context.Occasions.Add(occasion);
+            
+
             await _context.SaveChangesAsync();
+
+
+
+            
             return CreatedAtAction("Get", new { id = occasion.Id }, occasion);
         }
 
         // Other CRUD actions (PUT for update, DELETE, etc.) go here...
+
+        private Occasion MapFromREST(OccasionREST occasionREST)
+        {
+            return new Occasion
+            {
+                OccasionCategoryId = occasionREST.OccasionCategoryId,
+                OccasionName = occasionREST.Name,
+                StartTime = occasionREST.StartTime,
+                OccasionPlace = occasionREST.OccasionPlace
+            };
+        }
+    }
+
+    
+
+    public class OccasionREST
+    {
+        public string Name { get; set; }
+
+        public int OccasionCategoryId { get; set; }
+
+        public string OccasionPlace { get; set; }
+
+        public DateTime StartTime { get; set; }
     }
 }
