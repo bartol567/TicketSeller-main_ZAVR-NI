@@ -4,6 +4,7 @@ using TicketSellerAPI.Models;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Cors;
 
 namespace TicketSellerAPI.Controllers
 {
@@ -20,9 +21,18 @@ namespace TicketSellerAPI.Controllers
 
         // GET: api/Occasions
         [HttpGet]
+        [EnableCors("AllowAll")]
         public async Task<ActionResult<IEnumerable<Occasion>>> GetAll()
         {
             return await _context.Occasions.ToListAsync();
+        }
+
+        [HttpGet]
+        [EnableCors("AllowAll")]
+        [Route("by-category/{categoryId}")]
+        public async Task<ActionResult<IEnumerable<Occasion>>> GetOccasionsByCategoryIdAsync(int categoryId)
+        {
+            return await _context.Occasions.Where(p => p.OccasionCategoryId == categoryId).ToListAsync();
         }
 
         // GET: api/Occasions/5
