@@ -5,7 +5,7 @@ function OccasionsDisplay({ categoryId, onOccasionSelect }) {
   const [occasions, setOccasions] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://localhost:7205/api/Occasions/by-category/${categoryId}`)
+    axios.get(`http://wipeout-001-site1.gtempurl.com/api/Occasions/by-category/${categoryId}`)
       .then(response => setOccasions(response.data))
       .catch(error => console.error('Error fetching occasions', error));
   }, [categoryId]);

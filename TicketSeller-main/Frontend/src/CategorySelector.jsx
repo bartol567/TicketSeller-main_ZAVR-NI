@@ -5,7 +5,7 @@ function CategorySelector({ onCategorySelect }) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get('https://localhost:7205/api/OccasionCategories')
+    axios.get('http://wipeout-001-site1.gtempurl.com/api/OccasionCategories')
       .then(response => {
         const items = response.data;
         setCategories(response.data)

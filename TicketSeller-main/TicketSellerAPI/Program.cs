@@ -12,13 +12,15 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policyBuilder =>
+    options.AddPolicy("CorsPolicy", policyBuilder =>
     {
         policyBuilder.AllowAnyOrigin()
                      .AllowAnyMethod()
                      .AllowAnyHeader();
     });
 });
+
+
 
 builder.Services.AddDbContext<TicketSellerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TicketSellerDB")));
@@ -38,7 +40,7 @@ var app = builder.Build();
         AdditionalItems.Add("requestSnippetsEnabled", true);
     });
 //}
-app.UseCors("AllowAll");
+app.UseCors("CorsPolicy");
 // Http u Https
 app.UseHttpsRedirection();
 // Omoguciti autorizaciju
@@ -46,4 +48,8 @@ app.UseAuthorization();
 // Controleri na njihove rute
 app.MapControllers();
 // Pokretanje app-a
+app.UseStaticFiles();
+app.UseDefaultFiles();
+app.UseDeveloperExceptionPage();
+app.MapFallbackToFile("index.html");
 app.Run();
