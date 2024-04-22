@@ -24,7 +24,12 @@ namespace TicketSellerAPI.Controllers
         [EnableCors("CorsPolicy")]
         public async Task<ActionResult<IEnumerable<Occasion>>> GetAll()
         {
-            return await _context.Occasions.ToListAsync();
+            var occasions = await _context.Occasions.ToListAsync();
+            foreach (var occasion in occasions)
+            {
+                occasion.OccasionCategory = _context.OccasionCategories.Where(p => p.Id == occasion.OccasionCategoryId).First();
+            }
+            return occasions;
         }
 
         [HttpGet]
@@ -51,17 +56,19 @@ namespace TicketSellerAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Occasion>> Post(OccasionREST occasionREST)
         {
-
             var occasion = MapFromREST(occasionREST);
             _context.Occasions.Add(occasion);
-            
 
-            await _context.SaveChangesAsync();
+            var result = await _context.SaveChangesAsync();
 
-
-
-            
-            return CreatedAtAction("Get", new { id = occasion.Id }, occasion);
+            if (result > 0)
+            {
+                return CreatedAtAction("Get", new { id = occasion.Id }, occasion);
+            }
+            else
+            {
+                return BadRequest("Something went wrong while inserting. Please try again or contact our customer support if the problem persists.");
+            }
         }
 
         // Other CRUD actions (PUT for update, DELETE, etc.) go here...

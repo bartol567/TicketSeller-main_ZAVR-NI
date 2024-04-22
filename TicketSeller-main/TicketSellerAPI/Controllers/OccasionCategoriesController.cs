@@ -45,6 +45,10 @@ namespace TicketSellerAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<OccasionCategory>> PostOccasionCategory(OccasionCategory occasionCategory)
         {
+            if (_context.OccasionCategories.Any(p => p.CategoryName == occasionCategory.CategoryName))
+            {
+                return BadRequest("Category already exsits.");
+            }
             _context.OccasionCategories.Add(occasionCategory);
             await _context.SaveChangesAsync();
 

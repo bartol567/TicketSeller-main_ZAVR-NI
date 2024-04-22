@@ -22,7 +22,13 @@ namespace TicketSellerAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ticket>>> GetTickets()
         {
-            return await _context.Tickets.ToListAsync();
+            var tickets = await _context.Tickets.ToListAsync();
+            foreach (var ticket in tickets)
+            {
+                ticket.Occasion = _context.Occasions.Where(p => p.Id == ticket.OccasionId).First();
+                ticket.User = _context.Users.Where(p => p.Id == ticket.UserId).First();
+            }
+            return tickets;
         }
 
         // GET: api/Tickets/5
