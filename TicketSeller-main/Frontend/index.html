@@ -1,13 +1,100 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Seller</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        #root {
+            width: 80%;
+            margin: auto;
+            overflow: hidden
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        #ticket-form {
+            background: #ffffff;
+            padding: 30px;
+            margin-top: 15px;
+        }
+        input[type="text"],
+        select,
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .ticket-info {
+            background: #ffffff;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .ticket-info h3 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .ticket-info p {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+      <script type="module" src="/src/main.jsx"></script>
+        <!-- <div id="ticket-form">
+            <h2>Create Ticket and User</h2>
+            <form>
+                <input type="text" placeholder="First Name" name="firstName">
+                <input type="text" placeholder="Last Name" name="lastName">
+                <input type="email" placeholder="Email" name="email">
+                <input type="text" placeholder="OIB" name="oib">
+                <input type="text" placeholder="Home Address" name="address">
+                <input type="text" placeholder="City" name="city">
+                <input type="text" placeholder="Seat Number" name="seatNumber">
+                <input type="checkbox" id="seated" name="seated">
+                <label for="seated">Seated</label>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="ticket-info">
+            <h3>Ticket Information</h3>
+            <p>User: [Username from form]</p>
+            <p>Email: [Email from form]</p>
+            <p>OIB: [OIB from form]</p>
+            <p>Address: [Address from form]</p>
+            <p>Occasion: [Selected Occasion]</p>
+            <p>Date: [Selected Date]</p>
+            <p>Seat Number: [Seat Number from form]</p>
+            <p>Seated: [Seated Status from form]</p>
+        </div> -->
+    </div>
+</body>
 </html>
+

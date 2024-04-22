@@ -31,7 +31,7 @@ function TicketForm({ occasionId, onTicketCreated }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Create User
-    axios.post('http://wipeout-001-site1.gtempurl.com/api/Users', {
+    axios.post('https://localhost:7205/api/Users', {
       firstName: formData.firstName,
       lastName: formData.lastName,
       email: formData.email,
@@ -42,7 +42,7 @@ function TicketForm({ occasionId, onTicketCreated }) {
     }).then(response => {
       // User created successfully, now create ticket
       const userId = response.data.id;
-      return axios.post('http://wipeout-001-site1.gtempurl.com/api/Tickets', {
+      return axios.post('https://localhost:7205/api/Tickets', {
         userId: userId,
         occasionId: formData.occasionId,
         seat: formData.seatNumber,

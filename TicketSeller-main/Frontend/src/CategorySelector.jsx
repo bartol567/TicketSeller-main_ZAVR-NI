@@ -5,13 +5,14 @@ function CategorySelector({ onCategorySelect }) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get('http://wipeout-001-site1.gtempurl.com/api/OccasionCategories')
+    axios.get('https://localhost:7205/api/OccasionCategories')
       .then(response => {
         const items = response.data;
         setCategories(response.data)
       })
       .catch(error => console.error(error));
   }, []);
+  
   return (
     <select onChange={(e) => onCategorySelect(e.target.value)} defaultValue="">
       <option value="" disabled>Choose a category</option>
