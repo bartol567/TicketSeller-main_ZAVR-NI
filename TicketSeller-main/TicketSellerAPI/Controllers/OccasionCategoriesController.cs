@@ -21,7 +21,7 @@ namespace TicketSellerAPI.Controllers
 
         // GET: api/OccasionCategories
         [HttpGet]
-        [EnableCors("AllowAll")]
+        [EnableCors("CorsPolicy")]
         public async Task<ActionResult<IEnumerable<OccasionCategory>>> GetOccasionCategories()
         {
             return await _context.OccasionCategories.ToListAsync();
