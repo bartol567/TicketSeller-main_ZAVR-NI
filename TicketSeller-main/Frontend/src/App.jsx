@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import CategoriesPage from './CategoriesPage';
 import OccasionsDisplay from './OccasionsDisplay';
 import TicketsManager from './TicketsManager';
+import UsersManager from './UsersManager';
+
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -57,11 +59,15 @@ function App() {
               <Link to="/tickets">
                 <button type="button">View All Tickets</button>
               </Link>
+              <Link to="/users">
+                <button>Manage Users</button>
+              </Link>
             </>
           } />
           <Route path="/categories" element={<CategoriesPage />} />
           <Route path="/occasions" element={<OccasionsDisplay />} />
           <Route path="/tickets" element={<TicketsManager />} />
+          <Route path="/users" element={<UsersManager />} />
           
         </Routes>
     </div>

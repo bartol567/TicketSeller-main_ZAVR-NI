@@ -40,7 +40,7 @@ function TicketsManager() {
       <ul>
         {tickets.map(ticket => (
           <li key={ticket.id}>
-            {ticket.occasion.occasionName} - {ticket.occasion.startTime} - {ticket.user.firstName} {ticket.user.lastName} {'  '} {'  '} {'  '}
+            {ticket.occasion.occasionName} - {ticket.occasion.startTime} - {ticket.user.firstName} {ticket.user.lastName} {'  '}{'  '}{'  '}
             <button onClick={() => deleteTicket(ticket.id)}> 
               Delete
             </button>
