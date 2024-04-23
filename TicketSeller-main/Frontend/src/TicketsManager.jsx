@@ -12,7 +12,7 @@ function TicketsManager() {
   }, []);
 
   const fetchTickets = () => {
-    axios.get('https://localhost:7205/api/Tickets')
+    axios.get('https://wipeout-001-site1.gtempurl.com/api/Tickets')
       .then(response => {
         setTickets(response.data);
       })
@@ -22,7 +22,7 @@ function TicketsManager() {
   };
 
   const deleteTicket = (ticketId) => {
-    axios.delete(`https://localhost:7205/api/Tickets/${ticketId}`)
+    axios.delete(`https://wipeout-001-site1.gtempurl.com/api/Tickets/${ticketId}`)
       .then(response => {
         // Refresh the list of tickets or remove the ticket from the state
         setTickets(tickets.filter(ticket => ticket.id !== ticketId));

@@ -18,7 +18,7 @@ function NewOccasionForm({ categories, onNewOccasionAdded }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('https://localhost:7205/api/Occasions', occasionData)
+    axios.post('https://wipeout-001-site1.gtempurl.com/api/Occasions', occasionData)
       .then(response => {
         // Call a prop method to indicate that a new occasion was added
         onNewOccasionAdded({

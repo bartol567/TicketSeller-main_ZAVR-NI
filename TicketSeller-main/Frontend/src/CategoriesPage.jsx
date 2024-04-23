@@ -10,7 +10,7 @@ function CategoriesPage() {
 
   useEffect(() => {
     // Replace with your actual API endpoint for fetching categories
-    axios.get('https://localhost:7205/api/OccasionCategories')
+    axios.get('https://wipeout-001-site1.gtempurl.com/OccasionCategories')
       .then(response => {
         setCategories(response.data);
       })
@@ -24,7 +24,7 @@ function CategoriesPage() {
       categoryName: newCategoryName,
     };
 
-    axios.post('https://localhost:7205/api/OccasionCategories', newCategory)
+    axios.post('https://wipeout-001-site1.gtempurl.com/api/OccasionCategories', newCategory)
       .then(response => {
         // Assuming the response includes the newly added category
         setCategories([...categories, response.data]);

@@ -12,13 +12,13 @@ function UsersManager() {
 
 
   useEffect(() => {
-    axios.get('https://localhost:7205/api/Users')
+    axios.get('https://wipeout-001-site1.gtempurl.com/api/Users')
       .then(response => setUsers(response.data))
       .catch(error => console.error('Error fetching users:', error));
   }, []);
 
   const deleteUser = (userId) => {
-    axios.delete(`https://localhost:7205/api/Users/${userId}`)
+    axios.delete(`https://wipeout-001-site1.gtempurl.com/api/Users/${userId}`)
     .then(() => {
     setUsers(prevUsers => prevUsers.filter(user => user.id !== userId));
     })
@@ -51,7 +51,7 @@ function UsersManager() {
 
       // ... other fields ...
     };
-    axios.put(`https://localhost:7205/api/Users/${selectedUser.id}`, updatedUserData)
+    axios.put(`https://wipeout-001-site1.gtempurl.com/api/Users/${selectedUser.id}`, updatedUserData)
       .then(() => {
         setIsModalOpen(false);
         setUsers(prevUsers => prevUsers.map(user => user.id === selectedUser.id ? { ...user, ...updatedUserData } : user));

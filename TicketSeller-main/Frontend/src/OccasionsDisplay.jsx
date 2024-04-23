@@ -12,7 +12,7 @@ function OccasionsDisplay() {
 
   useEffect(() => {
     // Replace with your actual API endpoint for fetching occasions
-    axios.get('https://localhost:7205/api/Occasions')
+    axios.get('https://wipeout-001-site1.gtempurl.com/api/Occasions')
       .then(response => {
         // Assuming your occasions come in an array and each has a category property
         const grouped = response.data.reduce((acc, occasion) => {
