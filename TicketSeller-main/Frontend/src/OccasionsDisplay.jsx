@@ -28,7 +28,7 @@ function OccasionsDisplay() {
         console.error('There was an error fetching the occasions', error);
       });
 
-      axios.get('https://localhost:7205/api/OccasionCategories')
+      axios.get('https://wipeout-001-site1.gtempurl.com/api/OccasionCategories')
       .then(response => {
         setCategories(response.data);
       })

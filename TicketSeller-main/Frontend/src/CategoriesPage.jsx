@@ -10,7 +10,7 @@ function CategoriesPage() {
 
   useEffect(() => {
     // Replace with your actual API endpoint for fetching categories
-    axios.get('https://wipeout-001-site1.gtempurl.com/OccasionCategories')
+    axios.get('https://wipeout-001-site1.gtempurl.com/api/OccasionCategories')
       .then(response => {
         setCategories(response.data);
       })
